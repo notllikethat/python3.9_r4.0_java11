@@ -14,12 +14,14 @@ COPY requirements.R .
 
 # install dependencies
 RUN pip install -r requirements.txt
+RUN pip install --upgrade requests
 RUN apt install -y r-cran-devtools
 RUN apt-get install -y librsvg2-dev
 RUN apt-get install -y libxml2-dev
 RUN apt-get install -y libcurl4-openssl-dev
 RUN Rscript requirements.R
 
+# get RDT
 RUN wget https://github.com/asad/ReactionDecoder/releases/download/v2.4.1/rdt-2.4.1-jar-with-dependencies.jar
 
 
